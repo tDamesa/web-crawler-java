@@ -60,7 +60,6 @@ public final class WebCrawlerMain {
     }
 
     CrawlerConfiguration config = new ConfigurationLoader(Path.of(args[0])).load();
-    System.out.println("Config" + config.getResultPath() + config.getIgnoredUrls() + config.getIgnoredWords());
     new WebCrawlerMain(config).run();
   }
 }
