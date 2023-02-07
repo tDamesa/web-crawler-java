@@ -51,10 +51,9 @@ public class CrawlInternalTask extends RecursiveAction {
                 return;
             }
         }
-        if (visitedUrls.contains(url)) {
+        if (!visitedUrls.add(url)) {
             return;
         }
-        visitedUrls.add(url);
         PageParser.Result result = parserFactory.get(url).parse();
         for (ConcurrentMap.Entry<String, Integer> e : result.getWordCounts().entrySet()) {
             if (counts.containsKey(e.getKey())) {
